@@ -20,6 +20,11 @@ public class Battleship {
 			BoardPrinter.printBoard(board);
 		else
 			System.out.println("Error in adding ship!");
+		
+		if (board.fireAt(0, 0))
+			BoardPrinter.printBoard(board);
+		else
+			System.out.println("Error firing at cell");
 		System.exit(0);
 	}
 

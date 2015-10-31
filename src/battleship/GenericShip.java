@@ -14,5 +14,6 @@ public abstract class GenericShip {
 	abstract boolean isAlive();
 	abstract boolean isDamaged();
 	abstract void shotFired(int cell);
+	abstract boolean hasBeenHit(int cell);
 
 }

@@ -5,6 +5,10 @@ import java.awt.Point;
  * Class which maps a ship to to a set of coordinates. 
  * At the moment we operate under the assumption that 
  * ships are only linear
+ * 
+ * The ship map needs the board in order to mark the game cells. The ship map only tracks positioning
+ * of ships, the game cells themselves are responsible for hit / miss tracking and the ship is responsible
+ * for knowing when it is destroyed. 
  */
 
 public class ShipMap {
@@ -32,6 +36,34 @@ public class ShipMap {
 			return true;
 		}
 		return false;
+	}
+	public GenericShip getShip() {
+		return ship;
+	}
+	/**
+	 * Gets the index into the ship based on the passed in point
+	 * @param point the point that needs to be indexed
+	 * @return The index into the ship
+	 */
+	public int getShipIndex(Point point) {
+		Point tempPoint;
+		if (startPos.x == endPos.x) {
+			// must be horizontal
+			for (int i = startPos.y , j = 0; i <= endPos.y ; i++, j++) {
+				tempPoint = new Point(startPos.x, i);
+				if (tempPoint.equals(point))
+					return j;
+			}
+		}
+		else if (startPos.y == endPos.y) {
+			// must be vertical
+			for (int i = startPos.x, j = 0; i <= endPos.x ; i++, j++) {
+				tempPoint = new Point(i , startPos.y);
+				if (tempPoint.equals(point))
+					return j;
+			}
+		}
+		return -1;
 	}
 	// marks the ships on the GameCell map as being occupied
 	// currently does not support diagonal ships, but that should be easy to add

@@ -49,4 +49,18 @@ public class GameBoard {
 	public boolean isCellOccupied(int x, int y) {
 		return board[x][y].containsShip();
 	}
+	public boolean isCellHit(int x, int y) {
+		return board[x][y].isHit(shipMaps);
+	}
+	/**
+	 * Fire's at the entered row and column
+	 * @param row the row fired at
+	 * @param col the column fired at
+	 * @return True if hit, false if missed
+	 */
+	public boolean fireAt(int row, int col) {
+		// get the correct ship map to send to the GameCell
+		
+		return board[row][col].shotAt(shipMaps);		
+	}
 }

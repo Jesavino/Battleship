@@ -39,5 +39,10 @@ public class Destroyer extends GenericShip {
 		// TODO Auto-generated method stub
 		hitChart[cell] = true;
 	}
+	@Override
+	boolean hasBeenHit(int cell) {
+		// TODO Auto-generated method stub
+		return hitChart[cell];
+	}
 
 }

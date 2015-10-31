@@ -31,7 +31,10 @@ public class BoardPrinter {
 					if (j == 0)
 						System.out.print("|");
 					if (board.isCellOccupied(i-1, j)) {
-						System.out.print("S|");
+						if (board.isCellHit(i - 1, j))
+							System.out.print("X|");
+						else
+							System.out.print("S|");
 					}
 					else
 						System.out.print("_|");
