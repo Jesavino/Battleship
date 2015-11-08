@@ -11,10 +11,30 @@ public abstract class GenericShip {
 	boolean hitChart[];
 	String shipName;
 	
-	abstract boolean isAlive();
-	abstract boolean isDamaged();
-	public abstract void shotFired(int cell);
-	public abstract boolean hasBeenHit(int cell);
+	boolean isAlive() {
+		for (int i  = 0 ; i < hitChart.length ; i++) {
+			if (!hitChart[i])
+				return true;
+		}
+		return false;
+	}
+	
+	boolean isDamaged() {
+		// TODO Auto-generated method stub
+		for (int i = 0 ; i < hitChart.length ; i++) {
+			if (hitChart[i]) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public void shotFired(int cell) {
+		hitChart[cell] = true;
+	}
+	
+	public boolean hasBeenHit(int cell) {
+		return hitChart[cell];
+	}
 	public int getLengthOfShip() {
 		return lengthOfShip;
 	}

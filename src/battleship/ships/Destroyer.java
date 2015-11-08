@@ -17,34 +17,4 @@ public class Destroyer extends GenericShip {
 			hitChart[i] = false;
 		}
 	}
-	boolean isAlive() {
-		// TODO Auto-generated method stub
-		for (int i  = 0 ; i < hitChart.length ; i++) {
-			if (!hitChart[i])
-				return true;
-		}
-		return false;
-	}
-
-	boolean isDamaged() {
-		// TODO Auto-generated method stub
-		for (int i = 0 ; i < hitChart.length ; i++) {
-			if (hitChart[i]) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public void shotFired(int cell) {
-		// TODO Auto-generated method stub
-		hitChart[cell] = true;
-	}
-	@Override
-	public
-	boolean hasBeenHit(int cell) {
-		// TODO Auto-generated method stub
-		return hitChart[cell];
-	}
-
 }
