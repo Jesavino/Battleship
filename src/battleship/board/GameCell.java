@@ -1,6 +1,8 @@
-package battleship;
+package battleship.board;
 
 import java.awt.Point;
+
+import battleship.ships.GenericShip;
 
 /**
  * The board is made up or these game cells

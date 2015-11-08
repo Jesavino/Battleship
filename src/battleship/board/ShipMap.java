@@ -1,4 +1,4 @@
-package battleship;
+package battleship.board;
 
 import java.awt.Point;
 /*
@@ -10,6 +10,8 @@ import java.awt.Point;
  * of ships, the game cells themselves are responsible for hit / miss tracking and the ship is responsible
  * for knowing when it is destroyed. 
  */
+
+import battleship.ships.GenericShip;
 
 public class ShipMap {
 
@@ -63,10 +65,18 @@ public class ShipMap {
 					return j;
 			}
 		}
+		else { // must be diagonal 
+			for (int i = startPos.x, j = startPos.y , z = 0; i <= endPos.x ; i++, j++, z++) {
+				tempPoint = new Point(i , j);
+				if (tempPoint.equals(point))
+					return z;
+			}
+			
+		}
 		return -1;
 	}
 	// marks the ships on the GameCell map as being occupied
-	// currently does not support diagonal ships, but that should be easy to add
+	// currently does diagonal ships
 	private void markShips(Point start, Point end, GenericShip newShip, GameCell[][] board) {
 		// check if vertical or horizontal
 		if (start.x == end.x ) {
@@ -75,10 +85,15 @@ public class ShipMap {
 				board[start.x][i].addShip(newShip);
 			}
 		}
-		else {
+		else if (start.y == end.y){
 			// vertical
-			for (int i = start.x ; i < end.x ; i++) {
+			for (int i = start.x ; i <= end.x ; i++) {
 				board[i][start.y].addShip(newShip);
+			}
+		}
+		else { //must be diagonal
+			for (int i = start.x, j = start.y; i <= end.x ; i++, j++) {
+				board[i][j].addShip(newShip);
 			}
 		}
 	}

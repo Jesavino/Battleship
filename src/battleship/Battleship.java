@@ -2,6 +2,9 @@ package battleship;
 
 import java.awt.Point;
 
+import battleship.board.GameBoard;
+import battleship.ships.Destroyer;
+
 /**
  * Driver for battleship program. 
  * @author Jesavino
@@ -14,7 +17,7 @@ public class Battleship {
 		GameBoard board = new GameBoard(5,5,4);
 		BoardPrinter.printBoard(board);
 		Point start = new Point(0,0);
-		Point end = new Point(0,1);
+		Point end = new Point(1,1);
 		Destroyer destroyer = new Destroyer();
 		if (board.addShip(start, end, destroyer))
 			BoardPrinter.printBoard(board);

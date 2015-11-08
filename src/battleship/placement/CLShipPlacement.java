@@ -1,4 +1,8 @@
-package battleship;
+package battleship.placement;
+
+import battleship.BoardPrinter;
+import battleship.board.GameBoard;
+import battleship.ships.GenericShip;
 
 public class CLShipPlacement implements ShipPlacement {
 

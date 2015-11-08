@@ -1,5 +1,8 @@
 package battleship;
 
+import battleship.board.GameBoard;
+import battleship.board.ShipMap;
+
 /*
  * Responsible for printing the board
  * 
@@ -17,10 +20,10 @@ package battleship;
  */
 public class BoardPrinter {
 	
-	static void printBoard(GameBoard board){
-		int numRows = board.boardHeight;
-		int numCols = board.boardWidth;
-		ShipMap map[] = board.shipMaps;
+	public static void printBoard(GameBoard board){
+		int numRows = board.getBoardHeight();
+		int numCols = board.getBoardWidth();
+		ShipMap map[] = board.getShipMaps();
 		
 		for (int i = 0 ; i <= numRows ; i++) {
 			

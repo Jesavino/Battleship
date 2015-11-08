@@ -1,4 +1,5 @@
-package battleship;
+package battleship.ships;
+
 /* ---------------------------------------------------------------
  * 
  * Destroyers are small fast, ships. They will have a size of two.
@@ -8,8 +9,8 @@ package battleship;
 public class Destroyer extends GenericShip {
 
 	public Destroyer() {
-		lengthOfShip = 2;
-		hitChart = new boolean[lengthOfShip];
+		setLengthOfShip(2);
+		hitChart = new boolean[getLengthOfShip()];
 		shipName = "Destroyer";
 		
 		for (int i = 0 ; i < hitChart.length ; i++) {
@@ -35,11 +36,12 @@ public class Destroyer extends GenericShip {
 		return false;
 	}
 
-	void shotFired(int cell) {
+	public void shotFired(int cell) {
 		// TODO Auto-generated method stub
 		hitChart[cell] = true;
 	}
 	@Override
+	public
 	boolean hasBeenHit(int cell) {
 		// TODO Auto-generated method stub
 		return hitChart[cell];

@@ -1,6 +1,9 @@
-package battleship;
+package battleship.placement;
 
 import java.awt.Point;
+
+import battleship.board.GameBoard;
+import battleship.ships.GenericShip;
 
 // tests ship placement
 public class TestShipPlacement implements ShipPlacement {
@@ -14,13 +17,13 @@ public class TestShipPlacement implements ShipPlacement {
 		// TODO Auto-generated method stub
 		Point start, end;
 		
-		if (ships.length > board.boardHeight) {
+		if (ships.length > board.getBoardHeight()) {
 			System.out.println("Error: More ships than board height.");
 			return false;
 		}
 		for (int i = 0 ; i < ships.length ; i++) {
 			start = new Point(i , 0 );
-			end = new Point( i , ships[i].lengthOfShip);
+			end = new Point( i , ships[i].getLengthOfShip());
 			board.addShip(start,  end , ships[i]);
 		}
 		return true;
