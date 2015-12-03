@@ -4,7 +4,8 @@ import java.awt.Point;
 
 import battleship.GUI.MapViewer;
 import battleship.board.GameBoard;
-import battleship.ships.Destroyer;
+import battleship.placement.TestShipPlacement;
+import battleship.ships.*;
 
 /**
  * Driver for battleship program. 
@@ -15,27 +16,31 @@ public class Battleship {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/* WOrking example to play with the back end
+		// WOrking example to play with the back end
 		GameBoard board = new GameBoard(5,5,4);
 		BoardPrinter.printBoard(board);
-		Point start = new Point(2,2);
-		Point end = new Point(3,3);
+		
 		Destroyer destroyer = new Destroyer();
-		if (board.addShip(start, end, destroyer))
-			BoardPrinter.printBoard(board);
-		else
-			System.out.println("Error in adding ship!");
+		Cruiser cruiser = new Cruiser();
+		BattleshipShip battleship = new BattleshipShip();
+		Carrier carrier = new Carrier();
 		
-		if (board.fireAt(2, 2))
-			BoardPrinter.printBoard(board);
-		else
-			System.out.println("Error firing at cell");
-			*/
+		GenericShip[] ships = {destroyer, cruiser, battleship, carrier};
 		
-		// The start of a GUI. Long way to go here. 
+		TestShipPlacement tsp = new TestShipPlacement();
+		tsp.addShips(ships, board);
+		BoardPrinter.printBoard(board);
+		
+		// create a game thread
+		
+		
+	
+			
+		
+		/*/ The start of a GUI. Long way to go here. 
 		MapViewer view = new MapViewer();
-		view.showFrame();
-		//System.exit(0);
+		view.showFrame(); */
+		System.exit(0);
 		
 	}
 

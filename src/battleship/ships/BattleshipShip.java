@@ -1,7 +1,7 @@
 package battleship.ships;
 
-public class Battleship extends GenericShip {
-	public Battleship() {
+public class BattleshipShip extends GenericShip {
+	public BattleshipShip() {
 		setLengthOfShip(4);
 		hitChart = new boolean[getLengthOfShip()];
 		shipName = "Battleship";

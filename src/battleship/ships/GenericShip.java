@@ -11,12 +11,15 @@ public abstract class GenericShip {
 	boolean hitChart[];
 	String shipName;
 	
-	boolean isAlive() {
+	public boolean isAlive() {
 		for (int i  = 0 ; i < hitChart.length ; i++) {
 			if (!hitChart[i])
 				return true;
 		}
 		return false;
+	}
+	public boolean isDestroyed() {
+		return !isAlive();
 	}
 	
 	boolean isDamaged() {

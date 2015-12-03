@@ -90,4 +90,12 @@ public class GameBoard {
 	public void setShipMaps(ShipMap[] shipMaps) {
 		this.shipMaps = shipMaps;
 	}
+	// returns true if all ships are destroyed
+	public boolean allShipsDestroyed() {
+		for(int i = 0 ; i < shipMaps.length ; i++) {
+			if (shipMaps[i].getShip().isAlive())
+				return false;
+		}
+		return true;
+	}
 }

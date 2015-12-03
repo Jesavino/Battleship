@@ -8,6 +8,11 @@ import battleship.ships.GenericShip;
 // tests ship placement
 public class TestShipPlacement implements ShipPlacement {
 
+	
+	public TestShipPlacement() {
+		// null constructor 
+	}
+	
 	/**
 	 * Adds ships to the game board. This is a real simple algorithm which just 
 	 * adds the ship to the board left aligned. Requires the board to have enough 
@@ -23,7 +28,7 @@ public class TestShipPlacement implements ShipPlacement {
 		}
 		for (int i = 0 ; i < ships.length ; i++) {
 			start = new Point(i , 0 );
-			end = new Point( i , ships[i].getLengthOfShip());
+			end = new Point( i , ships[i].getLengthOfShip() - 1);
 			board.addShip(start,  end , ships[i]);
 		}
 		return true;
