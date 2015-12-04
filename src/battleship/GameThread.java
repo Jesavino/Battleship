@@ -33,6 +33,12 @@ public class GameThread implements Runnable{
 			if (row == 15) {
 				System.exit(0);
 			}
+			if (gameBoard.fireAt(row, column)) {
+				System.out.println("You hit!");
+			}
+			else 
+				System.out.println("Miss!");
+			BoardPrinter.printBoard(gameBoard);
 		}
 		
 	}

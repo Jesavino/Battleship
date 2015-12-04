@@ -32,7 +32,16 @@ public class Battleship {
 		BoardPrinter.printBoard(board);
 		
 		// create a game thread
+		GameThread t = new GameThread(board);
+		Thread thread = new Thread(t);
+		thread.start();
 		
+		try {
+			thread.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	
 			
