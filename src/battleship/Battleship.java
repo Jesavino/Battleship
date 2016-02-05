@@ -17,8 +17,9 @@ public class Battleship {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// WOrking example to play with the back end
+		
 		GameBoard board = new GameBoard(5,5,4);
-		BoardPrinter.printBoard(board);
+		//BoardPrinter.printBoard(board);
 		
 		Destroyer destroyer = new Destroyer();
 		Cruiser cruiser = new Cruiser();
@@ -27,11 +28,11 @@ public class Battleship {
 		
 		GenericShip[] ships = {destroyer, cruiser, battleship, carrier};
 		
-		TestShipPlacement tsp = new TestShipPlacement();
+		/*TestShipPlacement tsp = new TestShipPlacement();
 		tsp.addShips(ships, board);
-		BoardPrinter.printBoard(board);
+		BoardPrinter.printBoard(board); */
 		
-		// create a game thread
+		/* create a game thread 
 		GameThread t = new GameThread(board);
 		Thread thread = new Thread(t);
 		thread.start();
@@ -41,15 +42,15 @@ public class Battleship {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} */
 		
 	
 			
 		
-		/*/ The start of a GUI. Long way to go here. 
-		MapViewer view = new MapViewer();
-		view.showFrame(); */
-		System.exit(0);
+		// The start of a GUI. Long way to go here. 
+		MapViewer view = new MapViewer(board);
+		view.showFrame(); 
+		//System.exit(0);
 		
 	}
 
